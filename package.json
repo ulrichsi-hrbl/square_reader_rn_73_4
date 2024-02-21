@@ -12,6 +12,8 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.73.4",
+    "react-native-camera-kit": "^13.0.0",
+    "react-native-globalize": "^4.5.1",
     "react-native-permissions": "^4.1.2"
   },
   "devDependencies": {

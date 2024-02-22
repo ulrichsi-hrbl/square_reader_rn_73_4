@@ -17,13 +17,13 @@ https://github.com/joshswan/react-native-globalize
 
 ### ATTENTION!
 '/ios/SquareReaderSDK.xcframework/' was excluded from the repo because of git file size restrictions.  
-To add run on ios folder:  ios/SquareReaderSDK.xcframework
+To add run in terminal on ios folder:
 ```
 ruby <(curl https://connect.squareup.com/readersdk-installer) install \
 --app-id sq0idp-ngRYJ3oGCs8uGZXAUESsSA                                 \
 --repo-password hpbtm7bvnncsu6f4xjzodlgwys5zz4turb45hzjpsruu3v3b4pma
 ```  
-this downloads the framework into that location.  
+this downloads "SquareReaderSDK.xcframework" into the folder "ios".  
 
 
 ## <-- START OLD READ ME -->

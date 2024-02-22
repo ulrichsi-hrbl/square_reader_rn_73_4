@@ -18,13 +18,15 @@ https://github.com/joshswan/react-native-globalize
 ### ATTENTION!
 '/ios/SquareReaderSDK.xcframework/' was excluded from the repo because of git file size restrictions.  
 To add run on ios folder:  ios/SquareReaderSDK.xcframework
-
-## <-- START OLD READ ME -->
+```
 ruby <(curl https://connect.squareup.com/readersdk-installer) install \
 --app-id sq0idp-ngRYJ3oGCs8uGZXAUESsSA                                 \
 --repo-password hpbtm7bvnncsu6f4xjzodlgwys5zz4turb45hzjpsruu3v3b4pma
-  
+```  
 this downloads the framework into that location.  
+
+
+## <-- START OLD READ ME -->
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 

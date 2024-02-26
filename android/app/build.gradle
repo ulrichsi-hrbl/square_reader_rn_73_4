@@ -102,6 +102,25 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+  google()
+  maven {
+    url "https://sdk.squareup.com/android"
+    credentials {
+      // SQUARE_READER_SDK_APPLICATION_ID is defined in ./gradle.properties
+      username SQUARE_READER_SDK_APPLICATION_ID
+      // SQUARE_READER_SDK_REPOSITORY_PASSWORD is defined in ./gradle.properties
+      password SQUARE_READER_SDK_REPOSITORY_PASSWORD
+    }
+  }
+  mavenCentral()
 }
 
 dependencies {

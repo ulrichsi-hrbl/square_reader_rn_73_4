@@ -36,6 +36,10 @@ import {QRAuthorizationScreen} from './app/screens/QRAuthorizationScreen';
 import AuthorizingScreen from './app/screens/AuthorizingScreen';
 import DeauthorizingScreen from './app/screens/DeauthorizingScreen';
 
+if (__DEV__) {
+  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+}
+
 loadCldr(
   // Load the locales you actually need
   require('react-native-globalize/locale-data/en'),
@@ -60,7 +64,7 @@ const App: FC = () => {
   const PaymentStack = () => {
     return (
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Checkout" component={CheckoutScreen} />
+        <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
         <Stack.Screen name="Setting" component={SettingScreen} />
         <Stack.Screen name="Deauthorizing" component={DeauthorizingScreen} />
       </Stack.Navigator>

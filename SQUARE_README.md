@@ -24,3 +24,6 @@ ruby <(curl https://connect.squareup.com/readersdk-installer) install \
 --repo-password hpbtm7bvnncsu6f4xjzodlgwys5zz4turb45hzjpsruu3v3b4pma
 ```  
 this downloads "SquareReaderSDK.xcframework" into the folder "ios".
+
+### DEVICE COMPATIBILITY CHECK 
+https://squareup.com/us/en/compatibility

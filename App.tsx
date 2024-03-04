@@ -37,7 +37,16 @@ import AuthorizingScreen from './app/screens/AuthorizingScreen';
 import DeauthorizingScreen from './app/screens/DeauthorizingScreen';
 
 if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+  const isPhysicalIphone = true;
+  if (isPhysicalIphone) {
+    import('./Physical_iphone_ReactotronConfig').then(() =>
+      console.log('Reactotron Configured'),
+    );
+  } else {
+    import('./ReactotronConfig').then(() =>
+      console.log('Reactotron Configured'),
+    );
+  }
 }
 
 loadCldr(

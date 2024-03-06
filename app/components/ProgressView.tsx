@@ -19,6 +19,7 @@ import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {defaultStyles} from '../styles/common';
 
 const ProgressView: FC = () => {
+  console.log('ProgressView');
   return (
     <View style={defaultStyles.pageContainer}>
       <View style={styles.indicatorContainer}>

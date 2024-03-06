@@ -37,7 +37,7 @@ export function ChooseAuthorizeScreen({navigation}) {
         );
       }
 
-      console.log(cameraPermission);
+      console.log('cameraPermission', cameraPermission);
 
       if (cameraPermission === RESULTS.GRANTED) {
         navigation.navigate('QRAuthorize');
@@ -50,6 +50,8 @@ export function ChooseAuthorizeScreen({navigation}) {
             PERMISSIONS.ANDROID.CAMERA,
           );
         }
+        console.log('userResponse cameraPermission', cameraPermission);
+
         if (userResponse === RESULTS.GRANTED) {
           navigation.navigate('QRAuthorize');
         }

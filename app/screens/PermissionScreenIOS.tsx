@@ -25,18 +25,34 @@ import RNPermissions, {
   openSettings,
 } from 'react-native-permissions';
 
-export function PermissionScreenIOS({navigation}) {
-  const [micPermissionButtonLabel, setMicPermissionButtonLabel] = useState('');
+export function PermissionScreenIOS({navigation}: any) {
+  const [micPermissionButtonLabel, setMicPermissionButtonLabel] =
+    useState('no label yet');
   const [micButtonEnabled, setMicButtonEnabled] = useState(true);
   const [micButtonHandler, setMicButtonHandler] = useState(null);
   const [locationPermissionButtonLabel, setLocationPermissionButtonLabel] =
-    useState('');
+    useState('no label yet');
   const [locationButtonEnabled, setLocationButtonEnabled] = useState(true);
   const [locationbuttonHandler, setLocationButtonHandler] = useState(null);
 
   useEffect(() => {
-    checkPermissionsAndNavigateAsync();
-  }, []);
+    console.log(
+      'useEffect',
+      micPermissionButtonLabel,
+      locationPermissionButtonLabel,
+    );
+    if (
+      micPermissionButtonLabel === 'no label yet' ||
+      locationPermissionButtonLabel === 'no label yet'
+    ) {
+      checkPermissionsAndNavigateAsync();
+    } else {
+      setTimeout(() => {
+        console.log('we can navigate back to splash');
+        navigation.navigate('Splash');
+      }, 400);
+    }
+  }, [micPermissionButtonLabel, locationPermissionButtonLabel, navigation]);
 
   const Locationcheck = React.useCallback(() => {
     RNPermissions.request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE)
@@ -88,11 +104,18 @@ export function PermissionScreenIOS({navigation}) {
         permissions['ios.permission.MICROPHONE'] === RESULTS.GRANTED &&
         permissions['ios.permission.LOCATION_WHEN_IN_USE'] === RESULTS.GRANTED
       ) {
-        navigation.navigate('Splash');
+        // console.log('we can navigate back to splash');
+        // navigation.navigate('Splash');
         return true;
       }
-      Microphonecheck();
-      Locationcheck();
+
+      if (micPermissionButtonLabel === 'no label yet') {
+        Microphonecheck();
+      }
+      if (locationPermissionButtonLabel === 'no label yet') {
+        Locationcheck();
+      }
+
       return false;
     } catch (ex: any) {
       Alert.alert('Permission Error', ex.message);
@@ -102,13 +125,13 @@ export function PermissionScreenIOS({navigation}) {
 
   // MICROPHONE PERMISSION
   const updateMicrophoneState = async (state: any) => {
-    console.log('Microphone' + state);
+    console.log('Microphone: ' + state);
     switch (state) {
       case RESULTS.GRANTED:
         setMicPermissionButtonLabel('Microphone Enabled');
         setMicButtonEnabled(false);
         setMicButtonHandler(null);
-        checkPermissionsAndNavigateAsync();
+        // checkPermissionsAndNavigateAsync();
         break;
       case RESULTS.DENIED:
         setMicPermissionButtonLabel('Enable Microphone in Settings');
@@ -143,7 +166,7 @@ export function PermissionScreenIOS({navigation}) {
         setLocationPermissionButtonLabel('Location Enabled');
         setLocationButtonEnabled(false);
         setLocationButtonHandler(null);
-        checkPermissionsAndNavigateAsync();
+        // checkPermissionsAndNavigateAsync();
         break;
       case RESULTS.DENIED:
         setLocationPermissionButtonLabel('Enable Location in Settings');

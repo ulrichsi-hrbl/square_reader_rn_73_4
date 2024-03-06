@@ -27,25 +27,24 @@ import Permissions, {PERMISSIONS, RESULTS} from 'react-native-permissions';
 import {isAuthorizedAsync} from 'react-native-square-reader-sdk';
 import SquareLogo from '../components/SquareLogo';
 import {backgroundColor} from '../styles/common';
+import {useFocusEffect} from '@react-navigation/native';
 
-export default function SplashScreen({navigation}) {
+export default function SplashScreen({navigation}: any) {
   const [logoTranslateY] = useState(new Animated.Value(0));
 
-  // USEFFECT METHOD
-  useEffect(() => {
-    Animated.timing(logoTranslateY, {
-      toValue: -(Dimensions.get('window').height / 2 - 120), // Calculate the position of icon after tanslate
-      easing: Easing.bezier(0.25, 0.1, 0.25, 1),
-      duration: 1500,
-      useNativeDriver: true,
-    }).start();
+  const checkIsAuthorized = () => {
+    console.log('checkIsAuthorized');
 
-    window.setTimeout(async () => {
+    setTimeout(async () => {
+      const isAuthorized = await isAuthorizedAsync();
+
       try {
         const permissions = await Permissions.checkMultiple([
           PERMISSIONS.IOS.MICROPHONE,
           PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
         ]);
+        console.log('SplashScreen setTimeout', permissions, isAuthorized);
+
         if (
           Platform.OS === 'ios' && // Android doesn't need to handle permission explicitly
           (permissions['ios.permission.MICROPHONE'] !== RESULTS.GRANTED ||
@@ -55,7 +54,7 @@ export default function SplashScreen({navigation}) {
           navigation.navigate('PermissionSettings');
           return;
         }
-        const isAuthorized = await isAuthorizedAsync();
+        // const isAuthorized = await isAuthorizedAsync();
         if (!isAuthorized) {
           navigation.navigate('Auth');
           return;
@@ -66,7 +65,54 @@ export default function SplashScreen({navigation}) {
         Alert.alert('Navigation Error', ex.message);
       }
     }, 1600);
+  };
+  useFocusEffect(() => {
+    console.log('useFocusEffect');
+    checkIsAuthorized();
   });
+
+  // USE EFFECT METHOD
+  useEffect(() => {
+    console.log('SplashScreen useEffect');
+    Animated.timing(logoTranslateY, {
+      toValue: -(Dimensions.get('window').height / 2 - 120), // Calculate the position of icon after tanslate
+      easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+      duration: 1500,
+      useNativeDriver: true,
+    }).start();
+    checkIsAuthorized();
+
+    // setTimeout(async () => {
+    //   const isAuthorized = await isAuthorizedAsync();
+    //
+    //   try {
+    //     const permissions = await Permissions.checkMultiple([
+    //       PERMISSIONS.IOS.MICROPHONE,
+    //       PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+    //     ]);
+    //     console.log('SplashScreen setTimeout', permissions, isAuthorized);
+    //
+    //     if (
+    //       Platform.OS === 'ios' && // Android doesn't need to handle permission explicitly
+    //       (permissions['ios.permission.MICROPHONE'] !== RESULTS.GRANTED ||
+    //         permissions['ios.permission.LOCATION_WHEN_IN_USE'] !==
+    //           RESULTS.GRANTED)
+    //     ) {
+    //       navigation.navigate('PermissionSettings');
+    //       return;
+    //     }
+    //     // const isAuthorized = await isAuthorizedAsync();
+    //     if (!isAuthorized) {
+    //       navigation.navigate('Auth');
+    //       return;
+    //     }
+    //     // Permission has been granted (for iOS only) and readerSDK has been authorized
+    //     navigation.navigate('Checkout');
+    //   } catch (ex: any) {
+    //     Alert.alert('Navigation Error', ex.message);
+    //   }
+    // }, 1600);
+  }, []);
 
   return (
     <View style={styles.container}>

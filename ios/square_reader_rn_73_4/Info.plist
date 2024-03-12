@@ -53,6 +53,9 @@
       <key>NSBluetoothPeripheralUsageDescription</key>
       <string>This app integrates with Square for card processing. Square uses Bluetooth to connect your device to compatible hardware.</string>
 
+      <key>NSBluetoothAlwaysUsageDescription</key>
+      <string>This app integrates with Square for card processing. Square uses Bluetooth to connect your device to compatible hardware.</string>
+
       <key>NSCameraUsageDescription</key>
       <string>This app integrates with Square for card processing. Upload your account logo, feature photo and product images with the photos stored on your mobile device.</string>
 

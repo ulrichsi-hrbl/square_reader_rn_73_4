@@ -22,7 +22,7 @@ import {
 } from 'react-native-square-reader-sdk';
 import ProgressView from '../components/ProgressView';
 
-export default function AuthorizingScreen({navigation, route}) {
+export default function AuthorizingScreen({navigation, route}: any) {
   // GET AUTHORIZE CODE
   useEffect(() => {
     authorize();

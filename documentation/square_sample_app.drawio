@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2024-03-14T17:17:05.401Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" version="24.0.6" etag="5mhC3VRx8zWUl-pMCltW" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-14T17:18:58.981Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="kq06Ac01hIhlsKWSxqV3" version="24.0.6" type="github">
   <diagram name="Page-1" id="53RdcoXFq2q9VDLVtxE2">
-    <mxGraphModel>
+    <mxGraphModel dx="853" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="mZmOw7Z54KR6mbmTQFP2-1" value="&#xa;&lt;div id=&quot;geInfo&quot;&gt;&#xa;&#x9;&lt;div class=&quot;geBlock&quot;&gt;&#xa;&#x9;&#x9;&lt;h1&gt;Flowchart Maker and Online Diagram Software&lt;/h1&gt;&#xa;&#x9;&#x9;&lt;p&gt;&#xa;&#x9;&#x9;&#x9;draw.io is free online diagram software. You can use it as a flowchart maker, network diagram software, to create UML online, as an ER diagram tool, &#xa;&#x9;&#x9;&#x9;to design database schema, to build BPMN online, as a circuit diagram maker, and more. draw.io can import .vsdx, Gliffy™ and Lucidchart™ files .&#xa;&#x9;&#x9;&lt;/p&gt;&#xa;&#x9;&#x9;&lt;h2 id=&quot;geStatus&quot;&gt;Loading...&lt;/h2&gt;&#xa;&#x9;&#x9;&lt;p&gt;&#xa;&#x9;&#x9;&#x9;Please ensure JavaScript is enabled.&#xa;&#x9;&#x9;&lt;/p&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/div&gt;&#xa;&#xa;&#xa;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="560" height="610" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

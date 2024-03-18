@@ -27,3 +27,35 @@ this downloads "SquareReaderSDK.xcframework" into the folder "ios".
 
 ### DEVICE COMPATIBILITY CHECK 
 https://squareup.com/us/en/compatibility
+
+### CHECKOUT RESULT
+```
+// details at: node_modules/react-native-square-reader-sdk/index.d.ts
+// checkoutResult returned after 'success' on checkout
+const checkoutResult = {
+  totalTipMoney: { currencyCode: "USD", amount: 0 },
+  locationId: "LTW94SZC6WKH4",
+  totalMoney: { currencyCode: "USD", amount: 100 },
+  transactionClientId: "785C80FB-46B0-4D15-BB50-39CF72C879A8",
+  tenders:
+    [{
+      createdAt: "2024-03-18T17:12:10Z",
+      type: "card",
+      tenderId: "BiHlTNduDNpIOBSqGDo3zHPovaB",
+      cardDetails:
+        {
+          entryMethod: "CONTACTLESS",
+          card:
+            {
+              lastFourDigits: "1111",
+              cardholderName: "Visa Cardholder",
+              brand: "VISA",
+            },
+        },
+      tipMoney: { amount: 0, currencyCode: "USD" },
+      totalMoney: { amount: 100, currencyCode: "USD" },
+    }],
+  createdAt: "2024-03-18T17:12:15Z",
+  transactionId: "NzVg31M9upD9I24KsFHFRlkeV",
+};
+```

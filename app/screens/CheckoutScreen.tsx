@@ -22,7 +22,7 @@ import {
   Platform,
   Image,
   TouchableOpacity,
-  ActionSheetIOS, // eslint-disable-line react-native/split-platform-components
+  ActionSheetIOS,
 } from 'react-native';
 
 import {
@@ -33,6 +33,8 @@ import {
   CheckoutErrorSdkNotAuthorized,
   ReaderSettingsErrorSdkNotAuthorized,
   UsageError,
+  CheckoutParameter,
+  CheckoutResult,
 } from 'react-native-square-reader-sdk';
 
 import CustomButton from '../components/CustomButton';
@@ -40,7 +42,7 @@ import SquareLogo from '../components/SquareLogo';
 import {defaultStyles} from '../styles/common';
 const iconImage = require('../components/img/setting.png');
 
-export default function CheckoutScreen({navigation}) {
+export default function CheckoutScreen({navigation}: any) {
   const [locationName, setLocationName] = useState('');
 
   // USEEFFCT METHOD FOR GET AND SET LOCATION DETAILS
@@ -106,8 +108,9 @@ export default function CheckoutScreen({navigation}) {
 
   // ON CHECKOUT CLICK
   const onCheckout = async () => {
+    let checkoutResult: CheckoutResult;
     // A checkout parameter is required for this checkout method
-    const checkoutParams = {
+    const checkoutParams: CheckoutParameter = {
       amountMoney: {
         amount: 100,
         currencyCode: 'USD', // optional, use authorized location's currency code by default
@@ -123,11 +126,10 @@ export default function CheckoutScreen({navigation}) {
         showSeparateTipScreen: false,
         tipPercentages: [15, 20, 30],
       },
-      additionalPaymentTypes: ['cash', 'manual_card_entry', 'other'],
+      additionalPaymentTypes: ['cash', 'card', 'other'],
     };
-
     try {
-      const checkoutResult = await startCheckoutAsync(checkoutParams);
+      checkoutResult = await startCheckoutAsync(checkoutParams);
     } catch (ex: any) {
       let errorMessage = ex.message;
       switch (ex.code) {
@@ -148,6 +150,18 @@ export default function CheckoutScreen({navigation}) {
           break;
       }
     }
+
+    // DOES NOT WORK AS EXPECTED, NOT SURE WHY
+    // TODO: fix redirect
+
+    // if (checkoutResult !== undefined) {
+    //   console.log('checkoutResult:', checkoutResult);
+    //   setTimeout(() => {
+    //     navigation.navigate('AfterCheckoutSuccess', {
+    //       checkoutResult,
+    //     });
+    //   }, 500);
+    // }
   };
 
   return (

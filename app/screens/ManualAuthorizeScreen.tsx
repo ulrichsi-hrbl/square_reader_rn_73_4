@@ -18,7 +18,7 @@ import {StyleSheet, View, TextInput, Text} from 'react-native';
 import CustomButton from '../components/CustomButton';
 import {defaultStyles} from '../styles/common';
 
-export function ManualAuthorizeScreen({navigation}) {
+export function ManualAuthorizeScreen({navigation}: any) {
   const [authCode, setAuthCode] = useState('');
 
   // ONLOGIN CLICK

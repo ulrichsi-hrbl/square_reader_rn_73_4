@@ -17,7 +17,7 @@ import React, {useState} from 'react';
 import {CameraScreen} from 'react-native-camera-kit';
 import {backgroundColor} from '../styles/common';
 
-export function QRAuthorizationScreen({navigation}) {
+export function QRAuthorizationScreen({navigation}: any) {
   const [receivedCode, setReceivedCode] = useState(false);
 
   // ONSUCCES OF QRSCANNER

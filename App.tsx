@@ -35,6 +35,7 @@ import {PermissionScreenIOS} from './app/screens/PermissionScreenIOS';
 import {QRAuthorizationScreen} from './app/screens/QRAuthorizationScreen';
 import AuthorizingScreen from './app/screens/AuthorizingScreen';
 import DeauthorizingScreen from './app/screens/DeauthorizingScreen';
+import AfterCheckoutScreen from './app/screens/AfterCheckoutScreen';
 
 if (__DEV__) {
   const isPhysicalIphone = true;
@@ -76,6 +77,10 @@ const App: FC = () => {
         <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
         <Stack.Screen name="Setting" component={SettingScreen} />
         <Stack.Screen name="Deauthorizing" component={DeauthorizingScreen} />
+        <Stack.Screen
+          name="AfterCheckoutSuccess"
+          component={AfterCheckoutScreen}
+        />
       </Stack.Navigator>
     );
   };

@@ -21,10 +21,10 @@ import {
 } from 'react-native-square-reader-sdk';
 import ProgressView from '../components/ProgressView';
 
-export default function DeauthorizingScreen({navigation}) {
-  // USEEFFECT ACTION
+export default function DeauthorizingScreen({navigation}: any) {
+  // USE EFFECT ACTION
   useEffect(() => {
-    window.setTimeout(async () => {
+    setTimeout(async () => {
       if (await canDeauthorizeAsync()) {
         try {
           await deauthorizeAsync();

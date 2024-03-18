@@ -23,7 +23,7 @@ import {
 import CustomButton from '../components/CustomButton';
 import {defaultStyles} from '../styles/common';
 
-export function SettingScreen({navigation, route}) {
+export function SettingScreen({navigation, route}: any) {
   const {goBack} = navigation;
   const locationName = route.params.locationName;
 

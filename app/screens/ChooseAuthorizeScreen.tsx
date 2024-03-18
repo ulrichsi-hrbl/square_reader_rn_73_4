@@ -24,7 +24,7 @@ import CustomButton from '../components/CustomButton';
 import SquareLogo from '../components/SquareLogo';
 import {defaultStyles} from '../styles/common';
 
-export function ChooseAuthorizeScreen({navigation}) {
+export function ChooseAuthorizeScreen({navigation}: any) {
   // CHECK PERMISSION AND SCAN QRCODE
   const goToQRAuthorize = async () => {
     try {

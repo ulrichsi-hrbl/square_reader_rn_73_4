@@ -45,7 +45,7 @@ const iconImage = require('../components/img/setting.png');
 export default function CheckoutScreen({navigation}: any) {
   const [locationName, setLocationName] = useState('');
 
-  // USEEFFCT METHOD FOR GET AND SET LOCATION DETAILS
+  // USE EFFECT METHOD FOR GET AND SET LOCATION DETAILS
   useEffect(() => {
     (async function () {
       try {
